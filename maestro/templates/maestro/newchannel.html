@@ -1,0 +1,14 @@
+<form action="" method="post" style="display: inline;">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+    <input type="submit" value="Submit" />
+    <button onclick="location.href='{% url 'maestro:index' %}'" class="btn btn-default" type="button">Cancel</button>
+    {% if old %}
+    <button onclick="location.href='{% url 'maestro:deletechannel' old %}'" class="btn btn-default" type="button">Delete</button>
+    {% endif %}
+

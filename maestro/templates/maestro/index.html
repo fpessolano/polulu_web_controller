@@ -1,0 +1,15 @@
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+{% if latest_channel_list %}
+    <ul>
+    {% for channel in latest_channel_list %}
+        <li>Defined servo "<a href="{% url 'maestro:detail' channel.id %}">{{ channel.name }}</a>" at channel {{ channel.number }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No channels have been defined.</p>
+{% endif %}
+<br/>
+
+<button onclick="location.href='{% url 'maestro:newchannel' %}'" class="btn btn-default" type="button">Add Channel</button>

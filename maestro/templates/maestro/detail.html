@@ -1,0 +1,13 @@
+<h1>Servo: {{ channel.name }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+Channel number    : {{channel.number}} <br/>
+Range Minimum     : {{channel.rangeMin}}<br/>
+Range Maximum     : {{channel.rangeMax}} <br/>
+Target position   : {{channel.target}}<br/>
+Servo speed       : {{channel.speed}}<br/>
+Servo acceleration: {{channel.acceleration}}<br/>
+
+<p> <a href="{% url 'maestro:index' %}"> BACK </a></p>
